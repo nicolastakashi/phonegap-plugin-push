@@ -74,6 +74,29 @@ public class GCMIntentService extends GcmListenerService implements PushConstant
                 PushPlugin.setApplicationIconBadgeNumber(getApplicationContext(), 0);
             }
 
+            // BEGIN WORKARROUND
+            try
+            {
+                String json = extras.getString("payload");
+                JSONObject data = new JSONObject((String) json);
+                JSONObject android = data.getJSONObject("android");
+
+                extras.putString(MESSAGE, android.getString("alert"));
+                extras.putString(TITLE, android.getString("title"));
+                
+                extras.putBoolean(FOREGROUND, false);
+                extras.putBoolean(COLDSTART, PushPlugin.isActive());
+
+                showNotificationIfPossible(getApplicationContext(), extras);
+
+                return;
+            }
+            catch(JSONException ex)
+            {
+                Log.d(LOG_TAG, "Error getting alert and/or title from inner payload from Appcelerator");
+            }
+            // END WORKARROUND
+
             // if we are in the foreground and forceShow is `false` only send data
             if (!forceShow && PushPlugin.isInForeground()) {
                 Log.d(LOG_TAG, "foreground");
