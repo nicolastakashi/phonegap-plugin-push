@@ -17,7 +17,7 @@
     <engine name="cordova-ios" version=">=4.1.0"/>
   </engines>
   <preference name="SENDER_ID"/>
-  <resource-file src="src/logo.png" target="res/values/logo.png" />
+  
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="PushNotification">
@@ -74,6 +74,7 @@
     <js-module src="www/browser/push.js" name="BrowserPush">
       <clobbers target="PushNotification"/>
     </js-module>
+    <asset src="src/logo.png" target="res/drawable/logo.png"/>
     <asset src="src/browser/ServiceWorker.js" target="ServiceWorker.js"/>
     <asset src="src/browser/manifest.json" target="manifest.json"/>
   </platform>
