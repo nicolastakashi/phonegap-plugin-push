@@ -27,6 +27,7 @@
     <config-file target="res/values/strings.xml" parent="/resources">
       <string name="google_app_id">$SENDER_ID</string>
     </config-file>
+    <asset src="src/browser/manifest.json" target="manifest.json"/>
     <config-file target="AndroidManifest.xml" parent="/manifest">
       <uses-permission android:name="android.permission.INTERNET"/>
       <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -76,7 +77,6 @@
     </js-module>
     <asset src="src/logo.png" target="res/drawable/logo.png"/>
     <asset src="src/browser/ServiceWorker.js" target="ServiceWorker.js"/>
-    <asset src="src/browser/manifest.json" target="manifest.json"/>
   </platform>
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
