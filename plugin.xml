@@ -17,6 +17,7 @@
     <engine name="cordova-ios" version=">=4.1.0"/>
   </engines>
   <preference name="SENDER_ID"/>
+  <resource-file src="src/logo.png" target="res/values/logo.png" />
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="PushNotification">
