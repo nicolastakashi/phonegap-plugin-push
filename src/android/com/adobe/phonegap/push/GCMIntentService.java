@@ -83,7 +83,7 @@ public class GCMIntentService extends GcmListenerService implements PushConstant
 
                 extras.putString(MESSAGE, android.getString("alert"));
                 extras.putString(TITLE, android.getString("title"));
-                
+                extras.putString(ICON, android.getString(ICON));
                 extras.putBoolean(FOREGROUND, false);
                 extras.putBoolean(COLDSTART, PushPlugin.isActive());
 
